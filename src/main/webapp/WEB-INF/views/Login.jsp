@@ -189,5 +189,13 @@ function CheckPassword()
 		 	document.getElementById("errorMessage7").style.display = "block";
  }
   </script>
+  
+  <script type="text/javascript">
+  $('#lost-btn').on('click', function() {
+		$("#lost-form").toggleClass("show hidden");
+		return false;
+	});
+  
+  </script>
 </body>
 </html>

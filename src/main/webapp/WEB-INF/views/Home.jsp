@@ -14,13 +14,10 @@
    
    <link href="css/footer.css" rel="stylesheet">
   <link href="css/header.css" rel="stylesheet">
-                                                       
+     <link href="css/popup.css" rel="stylesheet">                                                  
    <link href="css/style.css" rel="stylesheet">
-<<<<<<< HEAD
   <link href="css/style1.css" rel="stylesheet" type="text/css" media="all" />	
 
-=======
->>>>>>> branch 'master' of https://github.com/bhumata/bhumata.git
         
     
 <title>Bhumata</title>
@@ -44,127 +41,8 @@ border: none;
 </head>
 <body >
 
-<<<<<<< HEAD
-<!-- <nav class="navbar navbar-default navbar-fix-top topnav" >
-=======
-<%-- <nav class="navbar navbar-default navbar-fix-top topnav" >
->>>>>>> branch 'master' of https://github.com/bhumata/bhumata.git
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>ans
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="#">Farming</a>
-    </div>
-     <form class="navbar-form navbar-left" action="showFilterproduct">
-        <div class="form-group">
-          <input type="text" name="pname" class="form-control" placeholder="Product Name">
-        </div>
-        <a href=" "><button type="submit" class="btn btn-default">Search</button></a>
-      </form>
-    <div class="collapse navbar-collapse" id="myNavbar">
-       <ul class="nav navbar-nav navbar-right">
-       <li class="upper-links"><a  href="FarmerLogin">Farmer</a></li>
-                <li class="upper-links"><a class="glyphicon glyphicon-map-marker" href="https://campusbox.org/">Wakad</a></li>
-     <c:choose>
-    <c:when test="${sessionScope.user!=null}">
-       <li class="dropdown">
-          <a href="LogoutUser"><b>Logout</b></a>	
-        </li>
-    </c:when>    
-    <c:otherwise> 
-         <li class="dropdown">
-          <a href="UserLogin"><b>Login</b></a>
-        </li>
-        </c:otherwise>
-</c:choose>	
-        
-          <li><a href="#">Help</a></li>
-       
-      </ul>
-    </div>
-  </div>
-  
-  
-  
-  
-  
-</nav>
-<<<<<<< HEAD
- -->
- 
- <div class="top_bg">
-	<div class="container">
-		<div class="header_top-sec">
-			<div class="top_right">
-				<ul>
-					<li><select class="group">
-							  <option><font size="8">English</font></option>
-							  <option><font size="8">Marathi</font></option>
-							  
-							</select></li> |
-					<li><a href="#">Contact</a></li>
-				</ul>
-			</div>
-			<div class="top_left">
-				<ul>
-					<li class="top_link"><a href="#">Farmer</a></li>	
-					<li class="top_link"><a href="#"  >Login</a>
-						<span>or</span><a  href="#"  >Signup</a></li>|
-					<li class="top_link"><a href="#">My Account</a></li>					
-				</ul>
-			</div>
-			<div class="clearfix"> </div>
-		</div>
-	</div>
-</div>
-<!-- top-header -->
-<!-- logo-cart -->
-<div class="header_top" style="background-color:#fff;">
-	<div class="container">
-		<div class="logo">
-		 	<a href="index.html">BHUMATA</a>			 
-		</div>
-		<div class="search" style="margin-left:40px; border:1px solid  #07980e;">
-				 <form name="form1" action="showFilterproduct">
-					<input type="text" name="pname" placeholder="Search..." >
-					<input type="submit" value="">
-					</form>
-			</div>
-		<div class="header_right">
-			<div class="cart box_1">
-				<a href="checkout.html">
-				<div class="total">
-				 <span id="simpleCart_quantity" class="simpleCart_quantity"></span> items</div>
-					<img src="images/image/cart1.png" alt=""/>
-				</a>
-				<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
-				<div class="clearfix"> </div>
-			</div>				 
-		</div>
-		<div class="clearfix"></div>	
-	</div>
-</div>
-<script src="js/simpleCart.min.js"> </script>
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-=======
- --%>
  <jsp:include page="Head.jsp"/>
->>>>>>> branch 'master' of https://github.com/bhumata/bhumata.git
+
 <jsp:include page="DropDown.jsp"/>
 
  <div class="intro-header" style="background-image: url('images/img1.png');">
@@ -422,5 +300,63 @@ border: none;
 </section>
     
 <jsp:include page="Footer.jsp"/>
+
+
+<!--  Expired user email-verification link Popup code-->
+	<div class="mod" id="userEmailExpire" style="color: black;">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<div class="modal-header" style="background-color: white;">
+					<span class="close1">&times;</span>
+					<h4 class="modal-title" id="myModalLabel">User Email
+						Verification</h4>
+				</div>
+				<div class="modal-body" style="background-color: white;">
+					<h5 style="color: red">Your Email Activation link is expired..</h5>
+					<div class="row">
+						<div class="col-md-6">
+
+							<form  class="form-horizontal" method="post"
+								action="emailExpirePopup">
+
+								<input type="hidden" name="email" id="email" value="${email}">
+								<div class="row">
+									<div class="col-sm-2"></div>
+									<div class="col-sm-10">
+										<button type="submit" value="Submit">Resend</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="js/popup.js" type="text/javascript"></script>
+	<!--  End of email-verification link expired popup code-->
+
+
+<!-- User email popup code -->
+	<c:set var="status" value="${status}" />
+	<%
+		//	String status="${status}";
+		String status = (String) pageContext.getAttribute("status");
+		if (status != null) {
+			if (status.equals("Activated")) {
+	%>
+	<script type="text/javascript">
+		alert("Your account is activated");
+	</script>
+	<%
+		} else if (status.equals("Expired")) {
+	%>
+	<script type="text/javascript">
+	emailExpirePopup();
+	</script>
+	<%
+		}
+		}
+	%>
 </body>
 </html>
