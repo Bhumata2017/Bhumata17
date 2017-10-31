@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.bhumata.model.Product;
 import com.bhumata.service.ProductService;
@@ -70,66 +71,95 @@ public class ProductController {
 		
 		
 		@RequestMapping(value = "/showFilterproduct1")
-		public String showFilterproduct1()
+		public String showFilterproduct1(@RequestParam("pId")int refId,Model model)
 		{
-			return "flower";
+			model.addAttribute("product", productService.listProductByProductNames(refId ));
+				
+				model.addAttribute("url", "showFilterproduct1");
+				return "flower";
 		}
+		
+		
+		@RequestMapping(value = "/showFilterproduct2")
+		public String showFilterproduct2(@RequestParam("pId")int refId,Model model)
+		{
+			model.addAttribute("product", productService.listProductByCategory(refId));
+				
+				model.addAttribute("url", "showFilterproduct2");
+				return "flower";
+		}
+		
+		
+		@RequestMapping(value = "/showFilterproduct3")
+		public String showFilterproduct3(@RequestParam("pname")String productName,Model model)
+		{Product product=new Product();
+		
+		if(productName.isEmpty())
+		{
+			
+			product.setProductName("Potatoes");
+		}
+		else
+		{
+			product.setProductName(productName);
+		}
+		model.addAttribute("product", productService.listProductByName(product));
+				return "flower";
+		}
+		
+		
+		
 		
 		
 		//filter page response with only one product name
 		@RequestMapping(value="/showFilterproduct")
-		public String showFilterproduct(@RequestParam("pname") String productName,Model model, Integer offset, Integer maxResults){
-			Product product=new Product();
-		
-			if(productName.isEmpty())
-			{
-				
-				product.setProductName("Potatoes");
-			}
-			else
-			{
-				product.setProductName(productName);
-			}
-			model.addAttribute("product", productService.listProductByName(product,offset, maxResults));
-			model.addAttribute("offset", offset);
-			model.addAttribute("url", "showFilterproduct");
-			return "flower";
+		public String showFilterproduct(@RequestParam("pname") String productName,RedirectAttributes ra){
+			
+			 ra.addAttribute("pname",productName);
+			return "redirect:/showFilterproduct3";
 		}
+		
+		
+		
+		
 		
 		//filter page response with only  product category
 		
-		@RequestMapping(value="/showFilterproductCategory")
-		public String showFilterproductCategory(@RequestParam("cname") String productCategory,Model model, Integer offset, Integer maxResults){
-			Product product=new Product();
-		
-			if(productCategory.isEmpty())
-			{
+				@RequestMapping(value="/showFilterproductCategory/{pId}")
+				public String showFilterproductCategory(@PathVariable("pId")int refId,RedirectAttributes ra){
+					
 				
-				product.setProductCategory("Vegetables");
-			}
-			else
-			{
-				product.setProductCategory(productCategory);
-			}
-			model.addAttribute("product", productService.listProductByCategory(product,offset, maxResults));
-			model.addAttribute("offset", offset);
-			model.addAttribute("url", "showFilterproduct");
-			return "flower";
-		}
+					 ra.addAttribute("pId",refId);
+					return "redirect:/showFilterproduct2";
+				}
+				
+		
 		
 		
 		//filter page response with various product names
 		
 				@RequestMapping(value="/showFilterProductNames1/{pId}")
-				public String showFilterProductNames1(@PathVariable("pId")int refId,Model model, Integer offset, Integer maxResults){
-				
-					
-				model.addAttribute("product", productService.listProductByProductNames(refId,offset, maxResults));
-					model.addAttribute("offset", offset);
-					model.addAttribute("url", "showFilterproduct");
-					return "flower";
+				public String showFilterProductNames1(@PathVariable("pId")int refId,RedirectAttributes ra){
+				 ra.addAttribute("pId",refId);
+					return "redirect:/showFilterproduct1";
 				}
 		
+				// show admin panel
+				
+				@RequestMapping(value = "/showAdmin")
+				public String showAdmin()
+				{
+					return "index1";
+				}
+				
+				
+          // show buttons
+				
+				@RequestMapping(value = "/showButtons")
+				public String showButtons()
+				{
+					return "buttons";
+				}
 		
 
 	

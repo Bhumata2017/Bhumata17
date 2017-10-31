@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.bhumata.model.Product;
 @Repository
@@ -44,7 +45,7 @@ public Product getProduct(Product product) {
 	
 	//list products by only one product name
 	@SuppressWarnings("unchecked")
-	public List<Product> listProductByName(Product product,Integer offset, Integer maxResults) {
+	public List<Product> listProductByName(Product product) {
 		Session session=sessionFactory.openSession();
 		Query query=session.createQuery("from Product p where p.productName=:productName"); 
 		query.setString("productName",product.getProductName());
@@ -54,23 +55,69 @@ public Product getProduct(Product product) {
 			}
 	
 	
-	//list products by Category
-		@SuppressWarnings("unchecked")
-		public List<Product> listProductByCategory(Product product,Integer offset, Integer maxResults) {
-			Session session=sessionFactory.openSession();
-			Query query=session.createQuery("from Product p where p.productCategory=:productCategory"); 
-			query.setString("productCategory",product.getProductCategory());
-			List<Product> product1 = query.list();
-			return product1;
-			
-
-				}
 	
-		
+	
+	
+	//list products by Category
+			@SuppressWarnings("unchecked")
+			public List<Product> listProductByCategory(int refId) {
+				Session session=sessionFactory.openSession();
+				
+				String s1="Vegetables";
+				String s2="fruits";
+				String s3="flowers";
+				String s4="dryfruits";
+				String s5="cereals";
+				String s6="seeds";
+				
+			
+				Query query=session.createQuery("from Product p where p.productCategory=:productCategory"); 
+				if(refId==1)
+				{
+					query.setString("productCategory", s1);
+				}
+				
+				if(refId==2)
+				{
+					query.setString("productCategory", s2);
+				}
+				if(refId==3)
+				{
+					query.setString("productCategory", s3);
+				}
+				
+				
+				if(refId==4)
+				{
+					query.setString("productCategory", s4);
+					
+				}
+
+				
+				if(refId==5)
+				{
+					query.setString("productCategory", s5);
+				}
+
+				if(refId==6)
+				{
+					query.setString("productCategory", s6);
+				}
+
+				
+				List<Product> product1 = query.list();
+				System.out.println(product1);
+
+				return product1;
+				
+
+					}
+	
+	
 		//list products by various product name
 				@SuppressWarnings("unchecked")
 				 
-				public List<Product> listProductByProductNames(int refId,Integer offset, Integer maxResults) {
+				public List<Product> listProductByProductNames(int refId) {
 					Session session=sessionFactory.openSession();
 					String[] myStringArray1 = {"Potatoes","Oninoes","Tomatoes"};
 					String[] myStringArray2 = {"Cucumber","Capsicum"};

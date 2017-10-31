@@ -8,6 +8,19 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+   <link href="css/footer.css" rel="stylesheet">
+  <link href="css/header.css" rel="stylesheet">
+                                                       
+   <link href="css/style.css" rel="stylesheet">
+  <link href="css/style1.css" rel="stylesheet" type="text/css" media="all" />	
+   
   
 <title>New</title>
 <style type="text/css">
@@ -247,7 +260,7 @@ left: 79%;
 	<div class="collapse navbar-collapse js-navbar-collapse">
 		<ul class="nav navbar-nav">
 			<li class="dropdown col-md-2  mega-dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">VEGETABLES</a>
+				<a href="showFilterproductCategory/1" class="dropdown-toggle" data-toggle="dropdown">VEGETABLES</a>
 			
 				<ul class="dropdown-menu dropdown-menu-2 mega-dropdown-menu mega-dropdown-menu-2c row">
 				
@@ -255,7 +268,8 @@ left: 79%;
 						<!-- <center>Vegetables</center> -->
 						<ul>
 						<!--  <li class="dropdown-header">Main Title </li> -->
-						
+						<li><a href="showAdmin">Potatoes, Oniones, Tomatoes</a></li>
+						<li><a href="showVegetable">Potatoes, Oniones, Tomatoes</a></li>
 							<li><a href="showFilterProductNames1/1">Potatoes, Oniones, Tomatoes</a></li>
 							<li><a href="showFilterProductNames1/2">Cucumber & Capsicum</a></li>
 							<li><a href="showFilterProductNames1/3">Cabbage, Cauliflower</a></li>
@@ -278,7 +292,7 @@ left: 79%;
 			</li>
 		
 			<li class="dropdown col-md-2 mega-dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">FRUITS</a>
+				<a href="showFilterproductCategory/2" class="dropdown-toggle" data-toggle="dropdown">FRUITS</a>
 				
 				<ul class="dropdown-menu dropdown-menu-12 mega-dropdown-menu mega-dropdown-menu-7c row">
 				
@@ -308,7 +322,7 @@ left: 79%;
 			</li>
 	
 			<li class="dropdown col-md-2 mega-dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">SEEDS</a>
+				<a href="showFilterproductCategory/6" class="dropdown-toggle" data-toggle="dropdown">SEEDS</a>
 				
 				<ul class="dropdown-menu dropdown-menu-14 mega-dropdown-menu mega-dropdown-menu-6c row">
 				
@@ -335,7 +349,7 @@ left: 79%;
 			</li>
 			
 			<li class="dropdown col-md-2 mega-dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">FLOWERS</a>
+				<a href="showFilterproductCategory/3" class="dropdown-toggle" data-toggle="dropdown">FLOWERS</a>
 				
 				<ul class="dropdown-menu dropdown-menu-13 mega-dropdown-menu mega-dropdown-menu-5c row">
 						<li class="col-sm-6">
@@ -360,7 +374,7 @@ left: 79%;
 				</ul>
 			</li>
 			<li class="dropdown col-md-2 mega-dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">DRY FRUITS</a>
+				<a href="showFilterproductCategory/4" class="dropdown-toggle" data-toggle="dropdown">DRY FRUITS</a>
 				
 				<ul class="dropdown-menu dropdown-menu-15 mega-dropdown-menu mega-dropdown-menu-3c row">
 						<li class="col-sm-6">
@@ -385,7 +399,7 @@ left: 79%;
 					</li>
 	
 			<li class="dropdown col-md-2 mega-dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">CEREALS</a>
+				<a href="showFilterproductCategory/5" class="dropdown-toggle" data-toggle="dropdown">CEREALS</a>
 				
 				<ul class="dropdown-menu dropdown-menu-16 mega-dropdown-menu mega-dropdown-menu-4c row">
 						<li class="col-sm-6">

@@ -6,7 +6,10 @@
 <context:component-scan base-package="com.bhumata"/>
 <!-- Handles HTTP GET requests for /web-resources/** by efficiently serving up static resources in the ${webappRoot}/resources/ directory -->
 <mvc:resources mapping="/js/**" location="/assets/js/" />
-        <mvc:resources mapping="/css/**" location="/assets/css/" />
+        <mvc:resources mapping="/css/**" location="/assets/css/" /> 
+         <mvc:resources mapping="/data/**" location="/assets/data/" /> 
+          <mvc:resources mapping="/img/**" location="/assets/img/" /> 
+        
         <mvc:resources mapping="/images/**" location="/assets/images/" />
 <!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

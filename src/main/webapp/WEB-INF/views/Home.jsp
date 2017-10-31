@@ -8,18 +8,19 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
    <link rel="stylesheet" href="css/style.css">
    
    <link href="css/footer.css" rel="stylesheet">
   <link href="css/header.css" rel="stylesheet">
-     <link href="css/popup.css" rel="stylesheet">                                                  
+                                                       
    <link href="css/style.css" rel="stylesheet">
+
   <link href="css/style1.css" rel="stylesheet" type="text/css" media="all" />	
 
-        
-    
+
 <title>Bhumata</title>
 <style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}</style>
 <style type="text/css">
@@ -36,27 +37,145 @@ border: none;
 
 }
 
+
+
+html,body {
+	margin: 0;
+	padding: 0;
+}
+.slider {
+	width: 1341px;
+	padding-top:0%;
+	  margin:  auto;  
+	margin-top: 0;
+}
+
+.slider-wrapper {
+	width: 100%;
+	height: 420px;
+	position: relative;
+	
+}
+
+.slide {
+	float: left;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	transition: opacity 3s linear;
+}
+
+.slider-wrapper > .slide:first-child {
+	opacity: 1;
+}
+
+
 </style>
 
 </head>
 <body >
 
+
+ 
  <jsp:include page="Head.jsp"/>
 
 <jsp:include page="DropDown.jsp"/>
 
- <div class="intro-header" style="background-image: url('images/img1.png');">
-         <div class="container">
+<div class="slider" id="main-slider"><!-- outermost container element -->
+	<div class="slider-wrapper"><!-- innermost wrapper element -->
+	<img src="images/slide5.jpg" alt="fifth" class="slide" /><!-- slides -->
+		<img src="images/slide1.jpg" alt="First" class="slide" /><!-- slides -->
+		<img src="images/slide3.jpg" alt="Third" class="slide" />
+		<img src="images/slide2.jpg" alt="Second" class="slide" />
+		<img src="images/slide4.jpg" alt="forth" class="slide" />
+		<img src="images/slide8.jpg" alt="forth" class="slide" />
+		<img src="images/slide6.jpg" alt="forth" class="slide" />
+		<img src="images/slide7.jpg" alt="forth" class="slide" />
+	</div>
+</div>	
 
-            <div class="row">
-                <div class="col-lg-12">
-                 <div class="intro-message"> 
-                        <h1>Farming</h1>
-                        </div>
-                </div>
-     		</div>
-		</div>
-</div>
+
+
+
+
+<script type="text/javascript">
+
+
+
+(function() {
+	
+	function Slideshow( element ) {
+		this.el = document.querySelector( element );
+		this.init();
+	}
+	
+	Slideshow.prototype = {
+		init: function() {
+			this.wrapper = this.el.querySelector( ".slider-wrapper" );
+			this.slides = this.el.querySelectorAll( ".slide" );
+			this.previous = this.el.querySelector( ".slider-previous" );
+			this.next = this.el.querySelector( ".slider-next" );
+			this.index = 0;
+			this.total = this.slides.length;
+			this.timer = null;
+			
+			this.action();
+			this.stopStart();	
+		},
+		_slideTo: function( slide ) {
+			var currentSlide = this.slides[slide];
+			currentSlide.style.opacity = 1;
+			
+			for( var i = 0; i < this.slides.length; i++ ) {
+				var slide = this.slides[i];
+				if( slide !== currentSlide ) {
+					slide.style.opacity = 0;
+				}
+			}
+		},
+		action: function() {
+			var self = this;
+			self.timer = setInterval(function() {
+				self.index++;
+				if( self.index == self.slides.length ) {
+					self.index = 0;
+				}
+				self._slideTo( self.index );
+				
+			}, 6000);
+		},
+		stopStart: function() {
+			var self = this;
+			self.el.addEventListener( "mouseover", function() {
+				clearInterval( self.timer );
+				self.timer = null;
+				
+			}, false);
+			self.el.addEventListener( "mouseout", function() {
+				self.action();
+				
+			}, false);
+		}
+		
+		
+	};
+	
+	document.addEventListener( "DOMContentLoaded", function() {
+		
+		var slider = new Slideshow( "#main-slider" );
+		
+	});
+	
+	
+})();
+
+
+
+</script>
+
+
+
 
 <div class="container">
 
@@ -65,45 +184,46 @@ border: none;
 
 			<div class="col-sm-4" >  
   				 <img src="images/vegetables.png" class="img-circle"  alt="Cinque Terre" width="250" height="236" > 
- 				 <h3><a href="#"><font color="#0000000">VEGETABLES</font></a></h3>
+ 				 <h3><a href="showFilterproductCategory/1"><font color="#0000000">VEGETABLES</font></a></h3>
   
 			</div>
 			
 			<div class="col-sm-4">  
   				 <img src="images/Fruit.png" class="img-circle"  alt="Cinque Terre" width="250" height="236" > 
- 				 <a href="#"><h3><font color="#0000000">FRUITS</font></h3></a>
+ 				 <a href="showFilterproductCategory/2"><h3><font color="#0000000">FRUITS</font></h3></a>
  			</div>
 
 			<div class="col-sm-4">  
   				 <img src="images/seed.png" class="img-circle"  alt="Cinque Terre" width="250" height="236" > 
- 				 <h3>SEEDS</h3>
+ 				 <a href="showFilterproductCategory/6"> <h3><font color="#0000000">SEEDS</font></h3></a>
   
 			</div>
 	</div>
 </div>	
 
-<div class="container">
+<div class="container"> 
 
 		<div class="Group1">
 			<div class="col-sm-4" >  
   				 <img src="images/flower1.png" class="img-circle"  alt="Cinque Terre" width="250" height="236"> 
- 				 <h3>FLOWERS</h3>
+ 				  <a href="showFilterproductCategory/3"> <h3><font color="#0000000">FLOWERS</font></h3></a>
   			</div>
 			
 			<div class="col-sm-4">  
   				 <img src="images/Dry-fruit.png" class="img-circle"  alt="Cinque Terre" width="250" height="236" > 
- 				 <h3>DRY FRUITS</h3>
+ 				<a href="showFilterproductCategory/4"> <h3><font color="#0000000">DRY FRUITS</font></h3></a>
  			</div>
 
 			<div class="col-sm-4">  
   				 <img src="images/wheat.jpg" class="img-circle"  alt="Cinque Terre" width="250" height="236" > 
- 				 <h3>CEREALS</h3>
+ 				 <a href="showFilterproductCategory/5"> <h3><font color="#0000000">CEREALS</font></h3></a>
 			</div>
 		</div>
 	
 </div>
-		
-<section id="three" class="no-padding" style="background-color:#f7f7f7">
+
+ 
+ <section id="three" class="no-padding" style="background-color:#f7f7f7">
         <div class="container-fluid">
         <div class="container" >
             <div class="row">
@@ -146,12 +266,12 @@ border: none;
 				<div class="clearfix hidden-lg"> </div>
                 <div class="col-lg-4 col-sm-6">
                     <a href="#galleryModal" class="gallery-box" data-toggle="modal">
-                        <img src="images/SugarCane.png" class="img-responsive" alt="Image 1">
+                        <img src="images/Bananajalgoan.png" class="img-responsive" alt="Image 1">
                         <div class="gallery-box-caption">
                             <div class="gallery-box-content">
                                 <div>
                                     <i class="icon-lg ion-ios-search"></i>
-                                    <h4>Ahmednagar</h4>
+                                    <h4>Jalgaon</h4>
                                 </div>
                             </div>
                         </div>
@@ -159,12 +279,12 @@ border: none;
                 </div>
                 <div class="col-lg-4 col-sm-6">
                     <a href="#galleryModal" class="gallery-box" data-toggle="modal">
-                        <img src="images/index_limiteddeal1.png" class="img-responsive" alt="Image 1">
+                        <img src="images/pomegrante.png" class="img-responsive" alt="Image 1">
                         <div class="gallery-box-caption">
                             <div class="gallery-box-content">
                                 <div>
                                     <i class="icon-lg ion-ios-search"></i>
-                                    <h4>DivaStays best deal for Students</h4>
+                                    <h4>Solapur</h4>
                                 </div>
                             </div>
                         </div>
@@ -173,12 +293,12 @@ border: none;
 				<div class="clearfix hidden-lg"> </div>
                 <div class="col-lg-4 col-sm-6">
                     <a href="#galleryModal" class="gallery-box" data-toggle="modal" data-src="./deer.png">
-                        <img src="images/index_limiteddeal1.png" class="img-responsive" alt="Image 1">
+                        <img src="images/grapesnashik.png" class="img-responsive" alt="Image 1">
                         <div class="gallery-box-caption">
                             <div class="gallery-box-content">
                                 <div>
                                     <i class="icon-lg ion-ios-search"></i>
-                                    <h4>DivaStays in Pune</h4>
+                                    <h4>Nashik</h4>
                                 </div>
                             </div>
                         </div>
@@ -186,12 +306,12 @@ border: none;
                 </div>
                 <div class="col-lg-4 col-sm-6">
                      <a href="#galleryModal" class="gallery-box" data-toggle="modal" data-src="./deer.png">
-                        <img src="images/index_limiteddeal1.png" class="img-responsive" alt="Image 1">
+                        <img src="images/strawbry.png" class="img-responsive" alt="Image 1">
                        <div class="gallery-box-caption">
                             <div class="gallery-box-content">
                                 <div>
                                     <i class="icon-lg ion-ios-search"></i>
-                                    <h4>DivaStays in Cultural places</h4>
+                                    <h4>Mahabaleshwar</h4>
                                     
                                 </div>
                             </div>
@@ -201,8 +321,24 @@ border: none;
        
         
 </section>
-
-
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 <div class="container">
 	
 	<div class="feature">
@@ -298,65 +434,7 @@ border: none;
     </div>
               
 </section>
-    
-<jsp:include page="Footer.jsp"/>
+    <jsp:include page="Footer.jsp"/>
 
-
-<!--  Expired user email-verification link Popup code-->
-	<div class="mod" id="userEmailExpire" style="color: black;">
-		<div class="modal-dialog modal-sm">
-			<div class="modal-content">
-				<div class="modal-header" style="background-color: white;">
-					<span class="close1">&times;</span>
-					<h4 class="modal-title" id="myModalLabel">User Email
-						Verification</h4>
-				</div>
-				<div class="modal-body" style="background-color: white;">
-					<h5 style="color: red">Your Email Activation link is expired..</h5>
-					<div class="row">
-						<div class="col-md-6">
-
-							<form  class="form-horizontal" method="post"
-								action="emailExpirePopup">
-
-								<input type="hidden" name="email" id="email" value="${email}">
-								<div class="row">
-									<div class="col-sm-2"></div>
-									<div class="col-sm-10">
-										<button type="submit" value="Submit">Resend</button>
-									</div>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<script src="js/popup.js" type="text/javascript"></script>
-	<!--  End of email-verification link expired popup code-->
-
-
-<!-- User email popup code -->
-	<c:set var="status" value="${status}" />
-	<%
-		//	String status="${status}";
-		String status = (String) pageContext.getAttribute("status");
-		if (status != null) {
-			if (status.equals("Activated")) {
-	%>
-	<script type="text/javascript">
-		alert("Your account is activated");
-	</script>
-	<%
-		} else if (status.equals("Expired")) {
-	%>
-	<script type="text/javascript">
-	emailExpirePopup();
-	</script>
-	<%
-		}
-		}
-	%>
 </body>
 </html>

@@ -87,7 +87,7 @@ input[type=reset]:hover {
 <label for="desc">Description:</label>
 <textarea id="subject" name="desc" placeholder="Write something about product.." style="height:200px"></textarea>
 
-<label for="image">Image:<input type="file" name="productImg"><a href="showForm"></a><input type="submit" value="Submit"> <input type="reset" value="Reset"></label>
+<label for="image">Image:<input type="file" name="productImg"><a href="showHome"></a><input type="submit" value="Submit"> <input type="reset" value="Reset"></label>
 </form>
 
 

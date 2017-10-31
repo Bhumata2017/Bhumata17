@@ -16,8 +16,9 @@
 <th>Product Category</th>
 <th>Price</th>
 <th>Quantity</th>
-<th>Description</th>
+<!-- <th>Description</th> -->
 <th>Product Image</th>
+<th>SubTotal</th>
 
 
 
@@ -29,8 +30,9 @@
 <td>${product.productCategory }</td>
 <td>${product.price}</td>
 <td>${product.quantity}</td>
-<td>${product.description}</td>
-<td>${product.productImg}</td>
+
+<td><img src="<ui:image img='${product.productImg}' ></ui:image>" alt="Image"  style="width: 50px; height: 50px;"/></td>
+<td>${product.price * product.quantity }</td>
 
 
 </tr>

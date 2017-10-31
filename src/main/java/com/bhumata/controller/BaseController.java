@@ -6,7 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping(value="/")
-public class BaseController {	
+public class BaseController {
+	
+	
+	
 	@RequestMapping(value="/showHome")
 	public String showHome()
 	{
@@ -62,6 +65,17 @@ public class BaseController {
 					return "cereals";
 				}
 				
+	      
+	       //show form
+	         @RequestMapping(value="/showForm")
+			 public String showForm()
+				{
+					return "productlogin";
+				}
+				
+	         
+	         
+	         
 	      /*-------User-------*/
 	         
 	       //showLogin

@@ -17,7 +17,7 @@ body{
     color: #f8f8f8; 
    background:url(Images/crop1.png) no-repeat 0px 0px;
     background-size: cover;
-    min-height:600px;
+    max-height:600px;
     
 }
 .intro-message {
@@ -263,9 +263,9 @@ min-height:400px;
   transition: 0.4s;
 }
 
-#contact .form button[type="submit"]:hover {
+ #contact .form button[type="submit"]:hover {
   
 }
 
-
+ 
 

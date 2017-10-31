@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
     <%@ taglib uri="/WEB-INF/taglibs/image.tld" prefix="ui"%>
+    
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -12,6 +13,16 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+   
+  
+  
 
 <link href="css/footer.css" rel="stylesheet">
   <link href="css/header.css" rel="stylesheet">
@@ -45,7 +56,9 @@ body {
 }
 .wrap {
     max-width: 1300px;
-    margin: 0 auto ;
+    margin: 0 auto ; 
+    padding-top: 1px;
+   
 }
 
 
@@ -120,7 +133,7 @@ img {
 }
  .item {
     vertical-align: top;
-    width: 230px; 
+    width: 250px; 
     height: 320px; 
     margin: 8px;
     background:#FEFEFE; 
@@ -192,8 +205,8 @@ h5 {
 .mini-menu > ul > li {
     position: relative;
 }
-.mini-menu > ul > li > a {
-    display: block;	
+.mini-menu > ul > .sub > a {
+     display: block;	
     outline: 0;	
     padding: 1.2em 1em;	
     text-decoration: none;	
@@ -221,8 +234,8 @@ h5 {
     font-style: normal; 
     letter-spacing: 1px;
 }
-/*.mini-menu .sub > ul > li > a:hover,*/
-.mini-menu .sub > a.active,
+/* .mini-menu .sub > ul > li > a:hover,* */
+ /* .mini-menu > ul >.sub > a
  {
     padding-left: 1.3em;
     color: blue;
@@ -230,14 +243,18 @@ h5 {
     float: right;
     margin-right:6px;
     line-height: 12px;
-}
-.mini-menu .sub >  a:after{
+} */
+ 
+
+
+
+ .mini-menu .sub >  a:after{
     content: "»";
     float: right;
     margin-right:6px;
     line-height: 12px;
 }
-
+ 
 @media screen and (max-width: 940px) {
     .items {width: 420px;}
     .wrap {width: 700px;}
@@ -278,8 +295,30 @@ input[type=submit] {
     display: block;
 }
 
+input[type=addtocart] {
+  
+   background-color: #white; /* Green */
+    border: 1px solid green;
+    color: black;
+     padding: 10px 10px; 
+    margin-left:30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    cursor: pointer;
+    width: 100px;
+    height:5px;
+    /* display: block; */
+}
+
+
 /* When moving the mouse over the submit button, add a darker green color */
  input[type=submit]:hover {
+    background-color: #4CAF50;
+} 
+
+input[type=addtocart]:hover {
     background-color: #4CAF50;
 } 
 
@@ -299,19 +338,7 @@ border: none;
 </style>
 </head>
 <body>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <title>Document</title>
-</head>
-<body>
+
 
  <div class="top_bg">
 	<div class="container">
@@ -322,8 +349,8 @@ border: none;
 							  <option><font size="8">English</font></option>
 							  <option><font size="8">Marathi</font></option>
 							  
-							</select></li> |
-					<li><a href="#">Contact</a></li>
+							</select></li>
+<li><a href="#">Contact</a></li>
 				</ul>
 			</div>
 			<div class="top_left">
@@ -331,7 +358,7 @@ border: none;
 					<li class="top_link"><a href="#">Farmer</a></li>	
 					<li class="top_link"><a href="#"  >Login</a>
 						<span>or</span><a  href="#"  >Signup</a></li>|
-					<li class="top_link"><a href="#">My Account</a></li>					
+<li class="top_link"><a href="#">My Account</a></li>					
 				</ul>
 			</div>
 			<div class="clearfix"> </div>
@@ -367,70 +394,98 @@ border: none;
 </div>
 <script src="js/simpleCart.min.js"> </script>
  
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="wrap">
+    <div class="wrap">
     <div class="menu">
         <div class="mini-menu">
+             <ul> 
+        <li class="sub">
+            <a href="#">Vegetables</a>
+              <ul>
+               <li><a href="showFilterProductNames1/1">Potatoes, Oniones, Tomatoes</a></li>
+             	<li><a href="showFilterProductNames1/2">Cucumber & Capsicum</a></li>
+							<li><a href="showFilterProductNames1/3">Cabbage, Cauliflower</a></li>
+							<li><a href="showFilterProductNames1/4">Beans, Brinjals, Okra</a></li>
+							<li><a href="showFilterProductNames1/5">Gourds, Pumpkins, Drumsticks</a></li>
+							<li><a href="showFilterProductNames1/1">Leafy Vegetables</a></li>
+							<li><a href="showFilterProductNames1/1">Root Vegetables</a></li>
+							<li><a href="showFilterProductNames1/1">Peas, Corn, Mushrooms</a></li>
+            </ul>  
+         </li> 
+        <li class="sub">
+            <a href="#">Fresh Fruits</a>
+             <ul>
+              <li><a href="showFilterProductNames1/6">Banana, Guava, Sapota</a></li>
+							<li><a href="showFilterProductNames1/7">Papaya, Pineapple, Pomegranate</a></li>
+							<li><a href="showFilterProductNames1/8">Apples, Pears</a></li>
+							<li><a href="showFilterProductNames1/9">Melon</a></li>
+							<li><a href="showFilterProductNames1/10">Oranges, Sweet Lime</a></li>
+							<li><a href="showFilterProductNames1/11">Grapes, Berries, Cherries</a></li>
+							<li><a href="showFilterProductNames1/12">Mangoes</a></li>
+							<li><a href="showFilterProductNames1/13">Plums,Peaches</a></li>
+							
+            </ul> 
+        </li>
+        <li class="sub">
+            <a href="#">SEEDS</a>
             <ul>
-        <li class="sub">
-        <form name="form1" action="showFilterproductCategory">
-            <input type="submit" name="cname" value="Vegetables"></a>
-           </form>
-       </li>
-       <br>
-        <li class="sub">
-          <form name="form1" action="showFilterproductCategory">
-            <input type="submit" name="cname" value="Fruits"></a> 
-       
-           <!--   <a href="showFilterproductCategory">Fresh Fruits</a> -->
-          </form> 
+              <li><a href="showFilterProductNames1/14">Amaranth Seeds</a></li>
+							<li><a href="showFilterProductNames1/15">Anise Seeds</a></li>
+							<li><a href="showFilterProductNames1/16">Basil Seeds</a></li>
+ 						    <li><a href="showFilterProductNames1/17">Caraway Seeds</a></li>
+ 						    <li><a href="showFilterProductNames1/18">Cardamom</a></li>
+							<li><a href="showFilterProductNames1/19">Coriander seeds</a></li>
+							<li><a href="showFilterProductNames1/20">Cumin seeds</a></li>
+							<li><a href="showFilterProductNames1/21">Fenugreek Seeds</a></li>
+ 						                </ul>
         </li>
-        <br>
-        <li class="sub">
-        <form name="form1" action="showFilterproductCategory">
-            <input type="submit" name="cname" value="Seeds"></a> 
-        
-            <!-- <a href="#">SEEDS</a> -->
-            </form>
-        </li>
-        <br>
-        <li class="sub">
-        <form name="form1" action="showFilterproductCategory">
-            <input type="submit" name="cname" value="DryFruits"></a> 
-        
-             <!-- <a href="#">DRY-FRUITS</a> -->
-            </form>
-        </li>
-        <br>
-        <li class="sub">
-        <form name="form1" action="showFilterproductCategory">
-            <input type="submit" name="cname" value="Cereals"></a> 
-        
-           <!--  <a href="#">Cereals</a>
-             -->
-             </form>
+         <li class="sub">
+            <a href="#">FLOWERS</a>
+            <ul>
+              <li><a href="showFilterProductNames1/22">Rose,Marigold</a></li>
+							<li><a href="showFilterProductNames1/23">Jasminum sambac</a></li>
+							<li><a href="showFilterProductNames1/24">Periwinklee</a></li>
+							<li><a href="showFilterProductNames1/25">Anona Hexapetala</a></li>
+							<li><a href="showFilterProductNames1/26">Hibiscus</a></li>
+							<li><a href="showFilterProductNames1/27">Cypress Vine</a></li>
+							<li><a href="showFilterProductNames1/28">Mimusops elengi</a></li>
+							
+ 						                </ul>
         </li>
         
+        
+        
+        <li class="sub">
+            <a href="#">DRY-FRUITS</a>
+            <ul>
+           <li><a href="showFilterProductNames1/29">Almonds</a></li>
+							<li><a href="showFilterProductNames1/30">Cashew nut</a></li>
+							<li><a href="showFilterProductNames1/31">Dates</a></li>
+							<li><a href="showFilterProductNames1/32">Pistachio</a></li>
+							<li><a href="showFilterProductNames1/33">Prunes</a></li>
+					<li><a href="showFilterProductNames1/34">Fig</a></li>
+					<li><a href="showFilterProductNames1/35">Walnuts</a></li>
+					<li><a href="showFilterProductNames1/36">Dried Kiwi</a></li>
+            </ul>
+        </li>
+         <li class="sub">
+            <a href="#">CEREALS</a>
+            <ul>
+            <li><a href="showFilterProductNames1/37">Wheat</a></li>
+							<li><a href="showFilterProductNames1/38">Maize</a></li>
+							<li><a href="showFilterProductNames1/39">Millet</a></li>
+							<li><a href="showFilterProductNames1/40">Ragi</a></li>
+							<li><a href="showFilterProductNames1/41">Rice</a></li>
+						<li><a href="showFilterProductNames1/42">Sorghum</a></li>
+						<li><a href="showFilterProductNames1/43">Sago</a></li>
+						<li><a href="showFilterProductNames1/44">Semolina</a></li> 
+            </ul>
+        </li>
     </ul>
         </div>
         
         <div class="menu-colors menu-item">
             <div class="header-item" >Quantity</div>
-            
-         
+           
         </div>
         <div class="menu-price menu-item">
             <div class="header-item" >Price</div>
@@ -442,59 +497,77 @@ border: none;
         </div>
         
     </div>
-  <!--  <div class="items">  -->
+    
+   
+    
+  <div class="items">
   
         <div data-price="160" class="item">  
  
 
 
-<table>
+<table style="margin-left: 50px;">
 
         <c:forEach items="${product}" var="product" varStatus="rowCounter">
        
-        <c:if test="${rowCounter.count % 4 == 1}">
+        <c:if test="${rowCounter.count % 4== 1}">
    
         <tr>
         </c:if>
         
-         <td><br> <img src="<ui:image img='${product.productImg}'></ui:image>" alt="Image" /> <br/> ${rowCounter.count}<br><h3>${product.productName }</h3>
+         <td><br> <img src="<ui:image img='${product.productImg}'></ui:image>" alt="Image" /> <br/><br><h3>${product.productName }</h3>
          
          <h5>Price:${product.price}</h5> 
          
-         <select name="os0" id="os0">
-            <option value="1000">(1kg. approx 6,7 nos. Rs.160)</option>
+          <select id="mySelect" onClick="myFunction();">
+            <option value="1000">1kg. approx 6,7 nos. Rs.160</option>
             <option value="250">250gm. approx 2,3 nos. Rs.40</option>
             <option value="500">500gm. approx 4,5 nos. Rs.80</option>
             <option value="1000">1kg. approx 6,7 nos. Rs.160</option>
         </select>
-         
+         <p id="demo"></p>
+
+<script>
+function myFunction() {
+    var x = document.getElementById("mySelect").value;
+    document.getElementById("demo").innerHTML = "Price: " + x;
+}
+</script>
            
         
-   
-         Qty:<input type="text" name="qty" style="width: 40px;">
-        
-         	<button class="btn" qa="add" type="button" style="margin-left: 50px;">
+   <!--  <form name="myform"  enctype="multipart/form-data">  -->
+         Qty:<input type="text" name="qty" id="qty" style="width: 2.0em;">
+      <%-- <a href="showdisplayproduct/${product.pId}?qty={qty}"> --%>
+         <!--  <button class="btn" qa="add" type="button" style="margin-left: 50px;">
          	
          	<strong style=" text-shadow: 1px 1px #fff;">Add to Cart </strong>
-         	</button>
+         	</button> -->  
+       <a href="showdisplayproduct/${product.pId}">
+           <input type="addtocart" value="Add to Cart">  
+         	 </a>
+         	 <!--  </form>  -->
+         	 
          	
          </td>
-         <c:if test="${rowCounter.count % 4 == 1||rowCounter.count == 4}">
+       <%--   <td style="margin-right: 50px;">
+         <c:if test="${rowCounter.count % 4 == 1}">
          
          </c:if>
          
-          
-       
+          </td>
+ --%>       
            
                 
          	
          </c:forEach>
-         	</table>
-         	</div>
-         
-         	</div>
          	
-                
+         	
+         </table>
+         	</div>
+         <br><br>	
+               
+         </div>
+         </div>
                 
         
    
@@ -518,7 +591,7 @@ border: none;
 
 
     <!--Menu-->
-  <script type="text/javascript">
+   <script type="text/javascript">
     $(document).ready(function () {
         $(".sub > a").click(function() {
             var ul = $(this).next(),
@@ -537,9 +610,18 @@ border: none;
            $(this).addClass('active');
         });
     });
-</script>
+   
+</script> 
+
+ 
+
+
+
+
+
+
 <script src="script.js" ></script>
-</html>
+
 <script>
     $( function() {
     $( "#slider-range" ).slider({
@@ -565,11 +647,7 @@ border: none;
           return price >= minPrice && price <= maxPrice;
       }).show();
   }
-  
-//   $( "#slider-range" ).on( "slidechange", function( event, ui ) {
-//     console.log(ui.value);
-// } );
-</script>
-
+  </script>
+  <jsp:include page="Footer.jsp"/>
 </body>
 </html>

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.bhumata.dao.ProductDAO;
 import com.bhumata.model.Product;
@@ -26,17 +27,26 @@ public class ProductServiceImpl implements ProductService {
 		return productDAO.getProduct(product);
 	}
 	
-	public List<Product> listProductByName(Product product, Integer offset, Integer maxResults) {
-		return productDAO.listProductByName(product,offset, maxResults);
+	public List<Product> listProductByName(Product product) {
+		return productDAO.listProductByName(product);
 	}
 	
 	
-	public List<Product> listProductByCategory(Product product, Integer offset, Integer maxResults) {
-		return productDAO.listProductByCategory(product,offset, maxResults);
+	
+	
+
+	public List<Product> listProductByCategory(int refId) {
+		return productDAO.listProductByCategory(refId);
 	}
 	
-	public List<Product>  listProductByProductNames(int refId, Integer offset, Integer maxResults) {
-		return productDAO. listProductByProductNames(refId,offset, maxResults);
+	
+	
+	
+	
+	
+	
+	public List<Product>  listProductByProductNames(int refId) {
+		return productDAO. listProductByProductNames(refId);
 	}
 
 
