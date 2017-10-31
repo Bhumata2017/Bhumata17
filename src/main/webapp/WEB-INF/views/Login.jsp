@@ -39,7 +39,7 @@
 	  <div class="container">
 	    <div class="row">
 		  <!-- Sign In form -->
-		  <div class="col-sm-5 col-sm-offset-1" style="margin-top:30px" >
+		  <div class="col-sm-5 col-sm-offset-1" >
 		  
 		  
 		  
@@ -91,14 +91,24 @@
 			  </form>
 			  <hr>
 			  <p><a href=".html#" id="lost-btn">Lost your password?</a></p>
+			  <c:choose>
+   				 <c:when test="${invalid==300}">
+			   <font style="color:red;"> Please enter valid email </font>
+			    </c:when>
+			    <c:otherwise>
+			    </c:otherwise>
+			    </c:choose>
 			  <div class="hidden" id="lost-form">
 			  <p>Enter your email address and we will send you a link to reset your password.</p>
-				<form role="form">
+				<form role="form" action="resetPassword" method="post">
 			      <div class="form-group">
 				    <label for="email-lost">Email address</label>
-				    <input type="email" class="form-control" id="email-lost" placeholder="Enter email">
+				    <input type="text" class="form-control" id="email"  name="email" placeholder="Enter email">
+				    
 				    
 			      </div>
+			      
+			     
 				  <button type="submit" class="btn btn-default">Send</button>
 				</form>
 			  </div>

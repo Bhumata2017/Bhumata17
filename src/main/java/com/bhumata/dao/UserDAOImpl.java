@@ -26,6 +26,7 @@ public class UserDAOImpl implements UserDAO {
 
 	}
 	
+	
 
 	@SuppressWarnings("unchecked")
 	public boolean checkEmail(User user) {
@@ -82,6 +83,29 @@ public class UserDAOImpl implements UserDAO {
 		}
 
 	}
+	
+	
+	public User resetPass(User user) {
+		Session session=sessionFactory.openSession();
+		Criteria crit=session.createCriteria(User.class);
+		Criterion c1=Restrictions.eq("email",user.getEmail());
+		
+		crit.add(c1);
+		@SuppressWarnings("unchecked")
+		List<User> list=crit.list();
+		if(list.isEmpty())
+		{
+			return null;
+		}
+		else
+		{
+			user=(User)list.get(0);
+			return user;
+		}
+		
+	}
+
+	
 	
 	
 	public User verifyUserAccount(User user) {
@@ -188,6 +212,9 @@ public class UserDAOImpl implements UserDAO {
 		
 	}
 
+
+
+	
 
 	
 

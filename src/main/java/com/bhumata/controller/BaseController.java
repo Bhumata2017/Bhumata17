@@ -62,8 +62,31 @@ public class BaseController {
 					return "cereals";
 				}
 				
-	      
+	      /*-------User-------*/
 	         
+	       //showLogin
+	     	@RequestMapping(value="/UserLogin")
+	     	public String UserLogin()
+	     	{
+	     	   	return "Login";
+	     	}
+
+	     //showSignUp
+	     	@RequestMapping(value="/UserSignUp")
+	     	public String UserSignUp()
+	     	{
+	     	   	return "SignUp";
+	     	}
+	     	
+	     	//show resetPass
+	     	@RequestMapping(value="/showResetPass")
+	     	public String showResetPass()
+	     	{
+	     	   	return "resetPass";
+	     	}
+	     	
+	     	
+
 
 
 }

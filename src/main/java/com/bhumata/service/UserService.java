@@ -10,4 +10,5 @@ public interface UserService {
 	public User verifyUserAccount(User user);
 	public User sendNewLink(User user);
 	public User getUser(User user);
+	public User resetPass(User user);
 }

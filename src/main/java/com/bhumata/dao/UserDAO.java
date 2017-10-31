@@ -11,7 +11,9 @@ public interface UserDAO {
 	public User sendNewLink(User user);
 	public User getUser(User user);
 	public void updateUser(User user);
-
+	public User resetPass(User user);
+	
+	
 	
 	
 

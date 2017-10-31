@@ -32,20 +32,6 @@ public class UserController {
 	private MailSender mailSender;
 	
 	
-//showLogin
-	@RequestMapping(value="/UserLogin")
-	public String UserLogin()
-	{
-	   	return "Login";
-	}
-
-//showSignUp
-	@RequestMapping(value="/UserSignUp")
-	public String UserSignUp()
-	{
-	   	return "SignUp";
-	}
-	
 
 //save User Registration	
 	@RequestMapping(value = "/saveUser", method = RequestMethod.POST)
@@ -72,6 +58,7 @@ public class UserController {
 		return "Login";
 		
 	}
+	
 	
 	public String sendDivastaysMail(String email,String message,String subject)
 	{
@@ -151,7 +138,7 @@ public class UserController {
 	    user=userService.sendNewLink(user);
 		String newLink="http://localhost:2018/bhumata/resendEmailVerify"+"?hashcode="+hashcode+"&email="+email;	
 		String msg="Thank You For Your Interest..\r\n"+ "Your account"+" " +email+" " +"will be activated..\r\n"+" Please click on the below link.\r\n\r\n"+" "+newLink;
-		sendDivastaysMail(email, msg," Divastays Email Verification Link");
+		sendDivastaysMail(email, msg," Bhumata Email Verification Link");
 		return "Home";
 	}
 	
@@ -222,7 +209,35 @@ public class UserController {
 			
 			
 		}
-	
+		
+		
+		//login check
+				@RequestMapping(value ={"/resetPassword"}, method = RequestMethod.POST)
+				public String login(@RequestParam("email") String email,HttpSession session,Model model,HttpServletRequest request,RedirectAttributes ra)
+				{
+					User user=new User();
+					user.setEmail(email);
+					
+					user=userService.resetPass(user);
+					if(user==null)
+					{
+						model.addAttribute("invalid",300);
+						return "Login";
+						
+						
+					}
+					else
+					{
+						model.addAttribute("invalid",1000);
+						return "redirect:/showResetPass";
+						
+					}
+					
+					
+				}
+				
+		
+
 //Logout User		
 		@RequestMapping("/LogoutUser")
 		public String logoutUser(HttpSession session) {

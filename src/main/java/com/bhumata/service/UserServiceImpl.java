@@ -15,6 +15,8 @@ public class UserServiceImpl implements UserService {
 
 	}
 	
+	
+	
 	public boolean checkEmail(User user) {
 		return userDAO.checkEmail(user);
 	}
@@ -38,6 +40,12 @@ public class UserServiceImpl implements UserService {
 	public void updateUser(User user) {
 		userDAO.updateUser(user);
 		
+	}
+
+
+
+	public User resetPass(User user) {
+		return userDAO.resetPass(user);
 	}
 	
 	

@@ -38,7 +38,7 @@
 	  <div class="container">
 	    <div class="row">
 		 <!-- Sign Up form -->
-		  <div class="col-sm-5 col-sm-offset-1" style="margin-top:20px" >
+		  <div class="col-sm-5 col-sm-offset-1" >
 		    <h3>Sign Up to your account</h3>
 			<p class="text-muted">
 			Please fill out the form below to create a new account.

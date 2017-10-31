@@ -65,13 +65,13 @@ border: none;
 
 			<div class="col-sm-4" >  
   				 <img src="images/vegetables.png" class="img-circle"  alt="Cinque Terre" width="250" height="236" > 
- 				 <h3><a href="hello.jsp"><font color="#0000000">VEGETABLES</font></a></h3>
+ 				 <h3><a href="#"><font color="#0000000">VEGETABLES</font></a></h3>
   
 			</div>
 			
 			<div class="col-sm-4">  
   				 <img src="images/Fruit.png" class="img-circle"  alt="Cinque Terre" width="250" height="236" > 
- 				 <a href="FilterPage.jsp"><h3><font color="#0000000">FRUITS</font></h3></a>
+ 				 <a href="#"><h3><font color="#0000000">FRUITS</font></h3></a>
  			</div>
 
 			<div class="col-sm-4">  
